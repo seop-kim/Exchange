@@ -29,12 +29,13 @@ Partial Class ExchangeMain
         Me.autoSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.beforeSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.savePathSet = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GoSavePath = New System.Windows.Forms.ToolStripMenuItem()
         Me.fileModify = New System.Windows.Forms.Button()
         Me.FileListBox = New System.Windows.Forms.ListBox()
         Me.fileClear = New System.Windows.Forms.Button()
         Me.fileDel = New System.Windows.Forms.Button()
         Me.fileAdd = New System.Windows.Forms.Button()
-        Me.fontTest = New System.Windows.Forms.Button()
+        Me.SavePathTest = New System.Windows.Forms.Button()
         Me.TestDraw = New System.Windows.Forms.Button()
         Me.testBtn2 = New System.Windows.Forms.Button()
         Me.testBtn = New System.Windows.Forms.Button()
@@ -54,15 +55,15 @@ Partial Class ExchangeMain
         '
         'saveSetting
         '
-        Me.saveSetting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.autoSaveSet, Me.savePathSet})
+        Me.saveSetting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.autoSaveSet, Me.savePathSet, Me.GoSavePath})
         Me.saveSetting.Name = "saveSetting"
-        Me.saveSetting.Size = New System.Drawing.Size(155, 48)
+        Me.saveSetting.Size = New System.Drawing.Size(183, 92)
         '
         'autoSaveSet
         '
         Me.autoSaveSet.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.autoSave, Me.beforeSave})
         Me.autoSaveSet.Name = "autoSaveSet"
-        Me.autoSaveSet.Size = New System.Drawing.Size(154, 22)
+        Me.autoSaveSet.Size = New System.Drawing.Size(182, 22)
         Me.autoSaveSet.Text = "자동 저장 설정"
         '
         'autoSave
@@ -84,8 +85,14 @@ Partial Class ExchangeMain
         'savePathSet
         '
         Me.savePathSet.Name = "savePathSet"
-        Me.savePathSet.Size = New System.Drawing.Size(154, 22)
+        Me.savePathSet.Size = New System.Drawing.Size(182, 22)
         Me.savePathSet.Text = "저장 경로 설정"
+        '
+        'GoSavePath
+        '
+        Me.GoSavePath.Name = "GoSavePath"
+        Me.GoSavePath.Size = New System.Drawing.Size(182, 22)
+        Me.GoSavePath.Text = "현재 저장 경로 보기"
         '
         'fileModify
         '
@@ -139,14 +146,14 @@ Partial Class ExchangeMain
         Me.fileAdd.Text = "추가"
         Me.fileAdd.UseVisualStyleBackColor = True
         '
-        'fontTest
+        'SavePathTest
         '
-        Me.fontTest.Location = New System.Drawing.Point(268, 89)
-        Me.fontTest.Name = "fontTest"
-        Me.fontTest.Size = New System.Drawing.Size(204, 23)
-        Me.fontTest.TabIndex = 19
-        Me.fontTest.Text = "fontTest"
-        Me.fontTest.UseVisualStyleBackColor = True
+        Me.SavePathTest.Location = New System.Drawing.Point(268, 89)
+        Me.SavePathTest.Name = "SavePathTest"
+        Me.SavePathTest.Size = New System.Drawing.Size(204, 23)
+        Me.SavePathTest.TabIndex = 19
+        Me.SavePathTest.Text = "SavePathTest"
+        Me.SavePathTest.UseVisualStyleBackColor = True
         '
         'TestDraw
         '
@@ -187,7 +194,7 @@ Partial Class ExchangeMain
         Me.Controls.Add(Me.fileClear)
         Me.Controls.Add(Me.fileDel)
         Me.Controls.Add(Me.fileAdd)
-        Me.Controls.Add(Me.fontTest)
+        Me.Controls.Add(Me.SavePathTest)
         Me.Controls.Add(Me.TestDraw)
         Me.Controls.Add(Me.testBtn2)
         Me.Controls.Add(Me.testBtn)
@@ -210,8 +217,9 @@ Partial Class ExchangeMain
     Friend WithEvents fileClear As Button
     Friend WithEvents fileDel As Button
     Friend WithEvents fileAdd As Button
-    Friend WithEvents fontTest As Button
+    Friend WithEvents SavePathTest As Button
     Friend WithEvents TestDraw As Button
     Friend WithEvents testBtn2 As Button
     Friend WithEvents testBtn As Button
+    Friend WithEvents GoSavePath As ToolStripMenuItem
 End Class

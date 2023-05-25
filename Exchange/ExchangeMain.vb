@@ -1,4 +1,6 @@
-﻿Public Class ExchangeMain
+﻿Imports org.apache.pdfbox
+
+Public Class ExchangeMain
     Private DocValidate As PDFValidator
     ' ListBox로 PDF 드래그 드랍
     Private Sub AddFileList_DragDrop(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles FileListBox.DragDrop
@@ -142,20 +144,21 @@
         My.Settings.Save()
     End Sub
 
+    ' 저장경로 설정
     Private Sub savePathSet_Click(sender As Object, e As EventArgs) Handles savePathSet.Click
+        Dim saveFilePath As New DialogResult
+        Dim savePath As FolderBrowserDialog = New FolderBrowserDialog
+        saveFilePath = savePath.ShowDialog
 
+        If Not (saveFilePath = DialogResult.OK) Then
+            Return
+        End If
+
+        My.Settings.SavePath = savePath.SelectedPath
     End Sub
 
-    Private Sub fontTest_Click(sender As Object, e As EventArgs) Handles fontTest.Click
-        'Dim font As PrivateFontCollection = New PrivateFontCollection
-        'Font.AddFontFile("malgun.ttf")
-
-
-
-
-    End Sub
-
-    Private Sub FileListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FileListBox.SelectedIndexChanged
-
+    ' 저장경로 보기
+    Private Sub GoSavePath_Click(sender As Object, e As EventArgs) Handles GoSavePath.Click
+        System.Diagnostics.Process.Start(My.Settings.SavePath)
     End Sub
 End Class
