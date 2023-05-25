@@ -151,8 +151,4 @@
     Private Sub DateTimePicker_Click() Handles DateTimePicker1.Click
         DatePicker.Hide()
     End Sub
-
-    Private Sub ReportGirdView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReportGirdView.CellContentClick
-
-    End Sub
 End Class
