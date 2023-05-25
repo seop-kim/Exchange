@@ -186,6 +186,7 @@
     <Compile Include="repository\DocumentRepository.vb" />
     <Compile Include="repository\ExchangeRateRepository.vb" />
     <Compile Include="service\ExchangeRateService.vb" />
+    <Compile Include="util\cal\Calculator.vb" />
     <Compile Include="util\crawling\WebCrawling.vb" />
     <Compile Include="util\file\PDFDraw.vb" />
     <Compile Include="util\file\PDFReder.vb" />
@@ -218,6 +219,7 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\malgun.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\Desktop\PDFBox.NET-1.8.9\bin\IKVM.OpenJDK.Naming.dll" />
