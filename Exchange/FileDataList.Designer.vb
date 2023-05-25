@@ -67,6 +67,7 @@ Partial Class FileDataList
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(516, 272)
+        Me.ControlBox = False
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.ReportGirdView)
         Me.Controls.Add(Me.back_btn)

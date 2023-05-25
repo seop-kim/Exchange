@@ -160,6 +160,12 @@
     <Compile Include="ExchangeMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Fee.Designer.vb">
+      <DependentUpon>Fee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FileDataList.Designer.vb">
       <DependentUpon>FileDataList.vb</DependentUpon>
     </Compile>
@@ -190,12 +196,16 @@
     <Compile Include="util\crawling\WebCrawling.vb" />
     <Compile Include="util\file\PDFDraw.vb" />
     <Compile Include="util\file\PDFReder.vb" />
+    <Compile Include="util\function\DrawFunction.vb" />
     <Compile Include="util\pdfdocument\PdfObject.vb" />
     <Compile Include="util\validate\PDFValidator.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ExchangeMain.resx">
       <DependentUpon>ExchangeMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee.resx">
+      <DependentUpon>Fee.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileDataList.resx">
       <DependentUpon>FileDataList.vb</DependentUpon>
@@ -225,6 +235,7 @@
     <Analyzer Include="..\..\..\..\Desktop\PDFBox.NET-1.8.9\bin\IKVM.OpenJDK.Naming.dll" />
     <Analyzer Include="..\..\..\..\Desktop\PDFBox.NET-1.8.9\bin\IKVM.Runtime.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.9.1\build\Selenium.WebDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

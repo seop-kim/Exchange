@@ -1,4 +1,5 @@
-﻿Imports org.apache.pdfbox
+﻿Imports System.IO
+Imports org.apache.pdfbox
 
 Public Class ExchangeMain
     Private DocValidate As PDFValidator
@@ -6,9 +7,6 @@ Public Class ExchangeMain
     Private Sub AddFileList_DragDrop(sender As Object, e As System.Windows.Forms.DragEventArgs) Handles FileListBox.DragDrop
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         DocValidate = New PDFValidator
-
-        Console.WriteLine("Files Count : " + files.Length.ToString)
-
         For i = 0 To files.Length - 1
             If Not DocValidate.File_Ext_PDF(files(i)) Then
                 Continue For
@@ -77,27 +75,25 @@ Public Class ExchangeMain
     End Sub
 
 
-    Private Sub testBtn2_Click(sender As Object, e As EventArgs) Handles testBtn2.Click
-        Dim DicDocs As Dictionary(Of String, DocumentInfo) = DocumentRepository.GetDocs
-        Dim Docs As List(Of DocumentInfo) = New List(Of DocumentInfo)(DicDocs.Values)
 
-        For i = 0 To Docs.Count - 1
-            Docs(i).Print_doc()
-        Next
-    End Sub
+    ' 실행 클릭 이벤트
+    Private Sub fileDraw_Click(sender As Object, e As EventArgs) Handles fileDraw.Click
+        Dim draw As DrawFunction = New DrawFunction
 
-    Private Sub TestDraw_Click(sender As Object, e As EventArgs) Handles TestDraw.Click
-        Dim draw = New PDFDraw
-        Dim ers = New ExchangeRateService
+        If My.Settings.isSaveAuto Then
+            draw.run()
+        Else
+            Dim saveFilePath As New DialogResult
+            Dim savePath As FolderBrowserDialog = New FolderBrowserDialog
+            saveFilePath = savePath.ShowDialog
 
-        Dim DicDocs As Dictionary(Of String, DocumentInfo) = DocumentRepository.GetDocs
-        Dim Docs As List(Of DocumentInfo) = New List(Of DocumentInfo)(DicDocs.Values)
+            If Not (saveFilePath = DialogResult.OK) Then
+                Return
+            End If
 
-        ers.AddRates(Docs)
+            draw.run(savePath.SelectedPath)
+        End If
 
-        For i = 0 To Docs.Count - 1
-            draw.Draw(Docs(i))
-        Next
     End Sub
 
 
@@ -160,5 +156,17 @@ Public Class ExchangeMain
     ' 저장경로 보기
     Private Sub GoSavePath_Click(sender As Object, e As EventArgs) Handles GoSavePath.Click
         System.Diagnostics.Process.Start(My.Settings.SavePath)
+    End Sub
+
+    Private Sub FeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeeToolStripMenuItem.Click
+        Fee.Show()
+    End Sub
+
+    Private Sub fileAdd_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub settingBtn_Click(sender As Object, e As EventArgs)
+        ContextMenuStrip.Show()
     End Sub
 End Class
