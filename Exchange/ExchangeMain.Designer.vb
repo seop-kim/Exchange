@@ -43,6 +43,7 @@ Partial Class ExchangeMain
         'fileDraw
         '
         Me.fileDraw.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.fileDraw.ContextMenuStrip = Me.saveSetting
         Me.fileDraw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.fileDraw.Font = New System.Drawing.Font("나눔고딕", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.fileDraw.Location = New System.Drawing.Point(121, 159)
