@@ -1,5 +1,5 @@
 ﻿Public Class ExchangeRateRepository
-    Private Shared Rate = New Dictionary(Of String, Double)
+    Private Shared ReadOnly Rate = New Dictionary(Of String, Double)
 
     Public Shared Function GetRate(Report_Date As String) As Double
         Return Rate(Report_Date)

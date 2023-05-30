@@ -1,6 +1,6 @@
 ﻿Public Class ExchangeRateService
-    Private wc = New WebCrawling
-    Public Shared Error_Date As List(Of String) = New List(Of String)
+    Private ReadOnly wc = New WebCrawling
+    Public Shared Error_Date As New List(Of String)
 
     Public Sub AddRates(Docs As List(Of DocumentInfo))
         For i = 0 To Docs.Count - 1
@@ -15,6 +15,10 @@
             If rate = 0 Then
                 Error_Date.Add(Doc.InfoReportDate)
                 Continue For
+
+            ElseIf rate = -1 Then
+                MsgBox("웹 접근에 실패하였습니다. 관리자에게 문의해 주세요.")
+                Exit For
             End If
 
             ExchangeRateRepository.AddRate(Doc.InfoReportDate, rate)
@@ -46,7 +50,7 @@
 
     Private Function Find_Error_Date_Bl(R_Date As String) As String
         Dim ItemsBl As String = ""
-        Dim Item As List(Of DocumentInfo) = New List(Of DocumentInfo)(DocumentRepository.GetDocs.Values)
+        Dim Item As New List(Of DocumentInfo)(DocumentRepository.GetDocs.Values)
 
         For i = 0 To Item.Count - 1
             If Item(i).InfoReportDate.Equals(R_Date) Then

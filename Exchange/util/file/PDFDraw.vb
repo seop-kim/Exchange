@@ -9,8 +9,8 @@ Imports org.apache.pdfbox.pdmodel.font
 Imports org.apache.fontbox.ttf
 
 Public Class PDFDraw
-    Private er_service = New ExchangeRateService
-    Private Cal As Calculator = New Calculator
+    Private ReadOnly er_service = New ExchangeRateService
+    Private ReadOnly Cal As Calculator = New Calculator
 
     Private Const PDF As String = ".pdf"
     Public Sub Draw(Doc As DocumentInfo)

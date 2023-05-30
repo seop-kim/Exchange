@@ -1,6 +1,8 @@
 ﻿
 Imports OpenQA.Selenium
 Imports OpenQA.Selenium.Chrome
+Imports OpenQA.Selenium.Edge
+
 
 Public Class WebCrawling
 
@@ -15,15 +17,24 @@ Public Class WebCrawling
 
     ' 주소를 매개변수로 해당 주소로 접속하여 환율 정보를 가져온다.
     Public Function GetExchangeRate(reportDate As String) As Double
+
         Dim rate As String
-        Dim driverService = ChromeDriverService.CreateDefaultService
+        Dim driverService As EdgeDriverService
+        Dim chromeOptions As EdgeOptions
+        Try
+            driverService = EdgeDriverService.CreateDefaultService
+            chromeOptions = New EdgeOptions()
+            driverService.HideCommandPromptWindow = True ' Cmd Hide
+            chromeOptions.AddArgument("headless") ' Web Hide
 
-        Dim chromeOptions = New ChromeOptions
+        Catch ex As Exception
+            Return -1
+        End Try
 
-        driverService.HideCommandPromptWindow = True ' Cmd Hide
-        chromeOptions.AddArgument("headless") ' Web Hide
+        Dim driver As EdgeDriver
 
-        Dim driver As ChromeDriver = New ChromeDriver(driverService, chromeOptions) ' Create Driver Object
+        driver = New EdgeDriver(driverService, chromeOptions) ' Create Driver Object
+
         Dim path = CreatePath(reportDate)
         driver.Url() = path ' set path
 

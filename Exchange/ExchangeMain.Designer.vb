@@ -37,12 +37,14 @@ Partial Class ExchangeMain
         Me.FileListBox = New System.Windows.Forms.ListBox()
         Me.fileClear = New System.Windows.Forms.Button()
         Me.fileDel = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.saveSetting.SuspendLayout()
         Me.SuspendLayout()
         '
         'fileDraw
         '
         Me.fileDraw.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.fileDraw.ContextMenuStrip = Me.saveSetting
         Me.fileDraw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.fileDraw.Font = New System.Drawing.Font("나눔고딕", 8.249999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(129, Byte))
         Me.fileDraw.Location = New System.Drawing.Point(121, 159)
@@ -157,13 +159,23 @@ Partial Class ExchangeMain
         Me.fileDel.Text = "삭제"
         Me.fileDel.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(261, 50)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ExchangeMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(253, 210)
+        Me.ClientSize = New System.Drawing.Size(344, 210)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.fileDraw)
         Me.Controls.Add(Me.fileModify)
         Me.Controls.Add(Me.FileListBox)
@@ -191,4 +203,5 @@ Partial Class ExchangeMain
     Friend WithEvents GoSavePath As ToolStripMenuItem
     Friend WithEvents 세부설정ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FeeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
 End Class

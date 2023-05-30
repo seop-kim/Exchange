@@ -35,7 +35,7 @@ Public Class ExchangeMain
     End Sub
 
     ' 초기화 버튼 클릭 이벤트
-    Private Sub fileClear_Click(sender As Object, e As EventArgs) Handles fileClear.Click
+    Private Sub FileClear_Click(sender As Object, e As EventArgs) Handles fileClear.Click
         If FileListBox.Items.Count = 0 Then
             MsgBox("추가된 파일이 없습니다.",, "Error")
             Return
@@ -49,7 +49,7 @@ Public Class ExchangeMain
     End Sub
 
     ' 수정 클릭 이벤트
-    Private Sub fileModify_Click(sender As Object, e As EventArgs) Handles fileModify.Click
+    Private Sub FileModify_Click(sender As Object, e As EventArgs) Handles fileModify.Click
         If FileListBox.Items.Count = 0 Then
             MsgBox("추가된 파일이 없습니다.",, "Error")
             Return
@@ -60,7 +60,7 @@ Public Class ExchangeMain
     End Sub
 
     ' 파일 삭제 클릭 이벤트
-    Private Sub fileDel_Click(sender As Object, e As EventArgs) Handles fileDel.Click
+    Private Sub FileDel_Click(sender As Object, e As EventArgs) Handles fileDel.Click
         If FileListBox.Items.Count = 0 Then
             MsgBox("추가된 파일이 없습니다.",, "Error")
             Return
@@ -77,14 +77,18 @@ Public Class ExchangeMain
 
 
     ' 실행 클릭 이벤트
-    Private Sub fileDraw_Click(sender As Object, e As EventArgs) Handles fileDraw.Click
-        Dim draw As DrawFunction = New DrawFunction
+    Private Sub FileDraw_Click(sender As Object, e As EventArgs) Handles fileDraw.Click
+        If FileListBox.Items.Count = 0 Then
+            MsgBox("추가된 파일이 없습니다.",, "Error")
+            Return
+        End If
+        Dim draw As New DrawFunction
 
         If My.Settings.isSaveAuto Then
             draw.run()
         Else
             Dim saveFilePath As New DialogResult
-            Dim savePath As FolderBrowserDialog = New FolderBrowserDialog
+            Dim savePath As New FolderBrowserDialog
             saveFilePath = savePath.ShowDialog
 
             If Not (saveFilePath = DialogResult.OK) Then
@@ -131,7 +135,7 @@ Public Class ExchangeMain
         My.Settings.Save()
     End Sub
 
-    Private Sub beforeSave_Click(sender As Object, e As EventArgs) Handles beforeSave.Click
+    Private Sub BeforeSave_Click(sender As Object, e As EventArgs) Handles beforeSave.Click
         beforeSave.Enabled = False
         autoSave.Checked = False
         beforeSave.Checked = True
@@ -141,9 +145,9 @@ Public Class ExchangeMain
     End Sub
 
     ' 저장경로 설정
-    Private Sub savePathSet_Click(sender As Object, e As EventArgs) Handles savePathSet.Click
+    Private Sub SavePathSet_Click(sender As Object, e As EventArgs) Handles savePathSet.Click
         Dim saveFilePath As New DialogResult
-        Dim savePath As FolderBrowserDialog = New FolderBrowserDialog
+        Dim savePath As New FolderBrowserDialog
         saveFilePath = savePath.ShowDialog
 
         If Not (saveFilePath = DialogResult.OK) Then
@@ -162,11 +166,27 @@ Public Class ExchangeMain
         Fee.Show()
     End Sub
 
-    Private Sub fileAdd_Click(sender As Object, e As EventArgs)
+    Private Sub FileAdd_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub settingBtn_Click(sender As Object, e As EventArgs)
+    Private Sub SettingBtn_Click(sender As Object, e As EventArgs)
         ContextMenuStrip.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim helpFileLoc As FileInfo
+        'Access our help file from the Resources section and store the file as bytesarray
+        Dim helpflbytes() As Byte = My.Resources.ChromeDriver_Updater
+
+        'Save the bytesarray to a real file (you can change the save path)
+        File.WriteAllBytes(Application.StartupPath & "\ChromeDriver.Updater.exe", helpflbytes)
+
+        'Create a fileinfo object that will have the FilePath of your help file
+        helpFileLoc = New FileInfo(Application.StartupPath & "\ChromeDriver.Updater.exe")
+
+        Process.Start(helpFileLoc.ToString)
+
+
     End Sub
 End Class
