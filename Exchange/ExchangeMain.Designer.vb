@@ -37,7 +37,6 @@ Partial Class ExchangeMain
         Me.FileListBox = New System.Windows.Forms.ListBox()
         Me.fileClear = New System.Windows.Forms.Button()
         Me.fileDel = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.saveSetting.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -159,23 +158,13 @@ Partial Class ExchangeMain
         Me.fileDel.Text = "삭제"
         Me.fileDel.UseVisualStyleBackColor = False
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(261, 50)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'ExchangeMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(344, 210)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(252, 210)
         Me.Controls.Add(Me.fileDraw)
         Me.Controls.Add(Me.fileModify)
         Me.Controls.Add(Me.FileListBox)
@@ -203,5 +192,4 @@ Partial Class ExchangeMain
     Friend WithEvents GoSavePath As ToolStripMenuItem
     Friend WithEvents 세부설정ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FeeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button1 As Button
 End Class

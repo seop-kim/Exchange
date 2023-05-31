@@ -21,7 +21,9 @@
                 Exit For
             End If
 
+            MsgBox("웹접근 실패 -1 값 리턴 받음")
             ExchangeRateRepository.AddRate(Doc.InfoReportDate, rate)
+            MsgBox("웹 접근 실패 후 rate값 배열에 넣음")
         Next
 
         If Not Error_Date.Count = 0 Then

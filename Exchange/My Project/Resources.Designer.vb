@@ -63,36 +63,6 @@ Namespace My.Resources
         '''<summary>
         '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
         '''</summary>
-        Friend ReadOnly Property chromedriver() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("chromedriver", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        '''</summary>
-        Friend ReadOnly Property ChromeDriver_Updater() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ChromeDriver_Updater", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        '''</summary>
-        Friend ReadOnly Property chromedriver_win32() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("chromedriver_win32", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        '''</summary>
         Friend ReadOnly Property malgun() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("malgun", resourceCulture)

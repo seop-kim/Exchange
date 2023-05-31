@@ -173,20 +173,4 @@ Public Class ExchangeMain
     Private Sub SettingBtn_Click(sender As Object, e As EventArgs)
         ContextMenuStrip.Show()
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim helpFileLoc As FileInfo
-        'Access our help file from the Resources section and store the file as bytesarray
-        Dim helpflbytes() As Byte = My.Resources.ChromeDriver_Updater
-
-        'Save the bytesarray to a real file (you can change the save path)
-        File.WriteAllBytes(Application.StartupPath & "\ChromeDriver.Updater.exe", helpflbytes)
-
-        'Create a fileinfo object that will have the FilePath of your help file
-        helpFileLoc = New FileInfo(Application.StartupPath & "\ChromeDriver.Updater.exe")
-
-        Process.Start(helpFileLoc.ToString)
-
-
-    End Sub
 End Class

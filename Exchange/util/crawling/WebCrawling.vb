@@ -31,9 +31,13 @@ Public Class WebCrawling
             Return -1
         End Try
 
+        MsgBox("driver 객체 선언 전")
         Dim driver As EdgeDriver
+        MsgBox("driver 객체 선언 후")
 
+        MsgBox("driver 객체 생성 전")
         driver = New EdgeDriver(driverService, chromeOptions) ' Create Driver Object
+        MsgBox("driver 객체 생성 후")
 
         Dim path = CreatePath(reportDate)
         driver.Url() = path ' set path

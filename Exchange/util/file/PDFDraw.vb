@@ -91,7 +91,6 @@ Public Class PDFDraw
 
         contentStream.moveTextPositionByAmount(0, -20)
         contentStream.drawString(Result(1))
-
         contentStream.endText()
         contentStream.close()
         Pdf_Doc.save(savePath + "/" + Doc.InfoBlNumber + PDF)
