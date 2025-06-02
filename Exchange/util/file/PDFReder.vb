@@ -28,8 +28,6 @@
         Doc.InfoFilePath = Path
         Doc.InfoFileName = System.IO.Path.GetFileName(Doc.InfoFilePath)
 
-        Doc.Print_doc()
-
         Return Doc
     End Function
 End Class
